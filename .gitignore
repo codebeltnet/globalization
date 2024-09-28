@@ -375,3 +375,6 @@ FodyWeavers.xsd
 
 # Strong-Name Key
 *.snk
+
+# Tooling
+/tooling/gse/Surrogates
