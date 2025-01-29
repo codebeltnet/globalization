@@ -1200,8 +1200,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Codebelt.Extensions.YamlDotNet" Version="8.4.0" />
-    <PackageReference Include="Cuemon.Extensions.Reflection" Version="8.3.2" />
+    <PackageReference Include="Codebelt.Extensions.YamlDotNet" />
   </ItemGroup>
 
 </Project>
