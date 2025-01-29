@@ -4,6 +4,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 For more details, please refer to `PackageReleaseNotes.txt` on a per assembly basis in the `.nuget` folder.
 
+> [!NOTE]  
+> Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
+
+## [9.0.1] - 2025-01-29
+
+This is a service update that primarily focuses on package dependencies and minor improvements.
+
 ## [8.4.0] - 2024-09-28
 
 ### Changed
