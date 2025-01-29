@@ -7,7 +7,6 @@ using Codebelt.Extensions.YamlDotNet;
 using Codebelt.Extensions.YamlDotNet.Formatters;
 using Cuemon;
 using Cuemon.Extensions.IO;
-using Cuemon.Extensions.Reflection;
 using Xunit;
 using Xunit.Abstractions;
 using YamlDotNet.Core;
@@ -17,32 +16,23 @@ namespace Codebelt.Extensions.Globalization
 {
     public class YamlSerializerTest : Test
     {
-        private readonly CultureInfo _cultureInfo;
+        private static readonly CultureInfo DanishCulture = new CultureInfo("da-DK").UseNationalLanguageSupport(); // from .NET6+ this is needed for both Windows and Linux; at least from pipeline (worked locally for Windows without Merge ...)
 
         public YamlSerializerTest(ITestOutputHelper output) : base(output)
         {
-            output.WriteLine("Assembly version: " + typeof(CultureInfoExtensions).Assembly.GetAssemblyVersion().ToString());
-            try
-            {
-                _cultureInfo = new CultureInfo("da-DK").UseNationalLanguageSupport(); // from .NET6+ this is needed for both Windows and Linux; at least from pipeline (worked locally for Windows without Merge ...)
-            }
-            catch (Exception e)
-            {
-                output.WriteLine(e.ToString());
-            }
         }
 
         [Fact]
         public void Serialize_ShouldSerializeDateFormatInfo()
         {
-            var sut2 = _cultureInfo;
+            var sut2 = DanishCulture;
             var sut3 = YamlFormatter.SerializeObject(sut2.DateTimeFormat, o =>
             {
                 o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
                 o.Settings.ScalarStyle = ScalarStyle.Plain;
                 o.Settings.IndentSequences = false;
-                o.Settings.FormatProvider = _cultureInfo;
-                o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(_cultureInfo))));
+                o.Settings.FormatProvider = DanishCulture;
+                o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(DanishCulture))));
             });
             var sut4 = sut3.ToEncodedString();
 
@@ -176,12 +166,12 @@ MonthGenitiveNames:
         [Fact]
         public void Serialize_ShouldSerializeNumberFormatInfo()
         {
-            var sut2 = _cultureInfo;
+            var sut2 = DanishCulture;
             var sut3 = YamlFormatter.SerializeObject(sut2.NumberFormat, o =>
             {
                 o.Settings.ScalarStyle = ScalarStyle.DoubleQuoted;
                 o.Settings.IndentSequences = false;
-                o.Settings.FormatProvider = _cultureInfo;
+                o.Settings.FormatProvider = DanishCulture;
                 o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
             });
             var sut4 = sut3.ToEncodedString();
@@ -235,12 +225,12 @@ DigitSubstitution: ""None""
         [Fact]
         public void Serialize_ShouldSerializeCultureInfo()
         {
-            var sut2 = _cultureInfo;
+            var sut2 = DanishCulture;
             var sut3 = YamlFormatter.SerializeObject(sut2, o =>
             {
                 o.Settings.IndentSequences = false;
                 o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
-                o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(_cultureInfo))));
+                o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(DanishCulture))));
             });
             var sut4 = sut3.ToEncodedString().ReplaceLineEndings().Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
 
