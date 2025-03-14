@@ -110,7 +110,7 @@ jobs:
           configuration: ${{ matrix.configuration }}
           buildSwitches: -p:SkipSignAssembly=true
 
-  sonarcloud-call:
+  sonarcloud:
     needs: [build,test]
     uses: codebeltnet/jobs-sonarcloud/.github/workflows/default.yml@v1
     with:
