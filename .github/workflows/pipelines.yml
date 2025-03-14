@@ -111,44 +111,14 @@ jobs:
           buildSwitches: -p:SkipSignAssembly=true
 
   sonarcloud:
-    name: 🔬 Code Quality Analysis
     needs: [build,test]
-    runs-on: ubuntu-22.04
-    timeout-minutes: 15
-    steps:
-      - name: Checkout
-        uses: codebeltnet/git-checkout@v1
-
-      - name: Install .NET
-        uses: codebeltnet/install-dotnet@v1
-        with:
-          includePreview: true
-
-      - name: Install .NET Tool - Sonar Scanner
-        uses: codebeltnet/dotnet-tool-install-sonarscanner@v1
-
-      - name: Restore Dependencies
-        uses: codebeltnet/dotnet-restore@v2
-
-      - name: Run SonarCloud Analysis
-        uses: codebeltnet/sonarcloud-scan@v1
-        with:
-          token: ${{ secrets.SONAR_TOKEN }}
-          organization: geekle
-          projectKey: globalization
-          version: ${{ needs.build.outputs.version }}
-
-      - name: Build
-        uses: codebeltnet/dotnet-build@v2
-        with:
-          buildSwitches: -p:SkipSignAssembly=true
-          uploadBuildArtifact: false
-
-      - name: Finalize SonarCloud Analysis
-        uses: codebeltnet/sonarcloud-scan-finalize@v1
-        with:
-          token: ${{ secrets.SONAR_TOKEN }}
-
+    uses: codebeltnet/jobs-sonarcloud/.github/workflows/default@v1
+    with:
+      organization: geekle
+      projectKey: globalization
+      version: ${{ needs.build.outputs.version }}
+    secrets: inherit
+    
   codecov:
     name: 📊 Code Coverage Analysis
     needs: [build,test]
