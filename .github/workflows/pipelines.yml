@@ -111,6 +111,7 @@ jobs:
           buildSwitches: -p:SkipSignAssembly=true
 
   sonarcloud:
+    name:  
     needs: [build,test]
     uses: codebeltnet/jobs-sonarcloud/.github/workflows/default.yml@v1
     with:
