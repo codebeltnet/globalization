@@ -112,7 +112,6 @@ jobs:
 
   sonarcloud:
     needs: [build,test]
-    name: 🔬 Code Quality Analysis
     uses: codebeltnet/jobs-sonarcloud/.github/workflows/default.yml@v1
     with:
       organization: geekle
