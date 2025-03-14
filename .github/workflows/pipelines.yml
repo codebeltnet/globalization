@@ -112,7 +112,7 @@ jobs:
 
   sonarcloud-call:
     needs: [build,test]
-    uses: codebeltnet/jobs-sonarcloud/.github/workflows/defaul.yml@v1
+    uses: codebeltnet/jobs-sonarcloud/.github/workflows/default.yml@v1
     with:
       organization: geekle
       projectKey: globalization
