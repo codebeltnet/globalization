@@ -135,13 +135,14 @@ jobs:
 
   deploy:
     if: github.event_name != 'pull_request'
-    name: 🚀 Deploy v${{ needs.build.outputs.version }}
-    runs-on: ubuntu-22.04
-    timeout-minutes: 15
-    needs: [build, pack, test, sonarcloud, codecov, codeql]
-    environment: Production
-    steps:
-      - uses: codebeltnet/nuget-push@v1
-        with:
-          token: ${{ secrets.NUGET_TOKEN }}
-          configuration: ${{ inputs.configuration == '' && 'Release' || inputs.configuration }}
+    name: call-nuget
+    needs: [build,pack,test,sonarcloud,codecov,codeql]
+    uses: codebeltnet/jobs-nuget/.github/workflows/default.yml@v1
+    with:
+      version: ${{ needs.build.outputs.version }}
+      environment: Production
+      configuration: ${{ inputs.configuration == '' && 'Release' || inputs.configuration }}
+    permissions:
+      contents: write
+      packages: write
+    secrets: inherit
