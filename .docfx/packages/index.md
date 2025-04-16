@@ -4,7 +4,7 @@ This is a list of all NuGet packages from **Extensions for Globalization API by 
 
 ### 📦 Standalone Packages
 
-Provides a focused API for RESTful versioning.
+Provides a focused API for using National Language Support (NLS) over International Components for Unicode (ICU).
 
 |Package|vNext|Stable|Downloads|
 |:--|:-:|:-:|:-:|
