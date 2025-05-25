@@ -54,6 +54,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v1
     with:
+      projects: test/**/*.csproj
       configuration: ${{ matrix.configuration }}
       runs-on: ${{ matrix.os }}
       build-switches: -p:SkipSignAssembly=true
