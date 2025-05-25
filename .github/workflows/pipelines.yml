@@ -26,6 +26,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-build/.github/workflows/default.yml@v1
     with:
+      projects: src/**/*.csproj
       configuration: ${{ matrix.configuration }}
       strong-name-key-filename: globalization.snk
     secrets:
