@@ -24,14 +24,12 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug, Release]
-    uses: codebeltnet/jobs-dotnet-build/.github/workflows/default.yml@v1
+    uses: codebeltnet/jobs-dotnet-build/.github/workflows/default.yml@v2
     with:
       projects: src/**/*.csproj
       configuration: ${{ matrix.configuration }}
       strong-name-key-filename: globalization.snk
-    secrets:
-      GCP_TOKEN: ${{ secrets.GCP_TOKEN }}
-      GCP_BUCKETNAME: ${{ secrets.GCP_BUCKETNAME }}
+    secrets: inherit
 
   pack:
     name: call-pack
@@ -39,10 +37,9 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug, Release]
-    uses: codebeltnet/jobs-dotnet-pack/.github/workflows/default.yml@v1
+    uses: codebeltnet/jobs-dotnet-pack/.github/workflows/default.yml@v2
     with:
       configuration: ${{ matrix.configuration }}
-      upload-packed-artifact: true
       version: ${{ needs.build.outputs.version }}
 
   test:
@@ -53,12 +50,13 @@ jobs:
       matrix:
         os: [ubuntu-24.04, windows-2022]
         configuration: [Debug, Release]
-    uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v1
+    uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v2
     with:
       projects: test/**/*.csproj
       configuration: ${{ matrix.configuration }}
       runs-on: ${{ matrix.os }}
       build-switches: -p:SkipSignAssembly=true
+      restore: true
 
   sonarcloud:
     name: call-sonarcloud
