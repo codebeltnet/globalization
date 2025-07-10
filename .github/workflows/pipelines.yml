@@ -63,6 +63,7 @@ jobs:
     needs: [build,test]
     uses: codebeltnet/jobs-sonarcloud/.github/workflows/default.yml@v2
     with:
+      projects: src/**/*.csproj
       organization: geekle
       projectKey: globalization
       version: ${{ needs.build.outputs.version }}
@@ -80,6 +81,8 @@ jobs:
     name: call-codeql
     needs: [build,test]
     uses: codebeltnet/jobs-codeql/.github/workflows/default.yml@v2
+    with:
+      projects: src/**/*.csproj
 
   deploy:
     if: github.event_name != 'pull_request'
