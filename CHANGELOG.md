@@ -7,6 +7,10 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
+## [9.0.5] - 2025-07-11
+
+This is a service update that focuses on package dependencies.
+
 ## [9.0.4] - 2025-06-15
 
 This is a service update that focuses on package dependencies.
