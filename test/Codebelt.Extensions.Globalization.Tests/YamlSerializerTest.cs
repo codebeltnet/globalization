@@ -8,7 +8,6 @@ using Codebelt.Extensions.YamlDotNet.Formatters;
 using Cuemon;
 using Cuemon.Extensions.IO;
 using Xunit;
-using Xunit.Abstractions;
 using YamlDotNet.Core;
 using YamlDotNet.Serialization.NamingConventions;
 

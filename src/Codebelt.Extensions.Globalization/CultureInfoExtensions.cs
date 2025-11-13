@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using Codebelt.Extensions.YamlDotNet.Formatters;
+﻿using Codebelt.Extensions.YamlDotNet.Formatters;
 using Cuemon;
 using Cuemon.Collections.Generic;
 using Cuemon.Extensions.IO;
 using Cuemon.Extensions.Reflection;
 using Cuemon.Reflection;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace Codebelt.Extensions.Globalization
@@ -18,7 +19,7 @@ namespace Codebelt.Extensions.Globalization
     /// </summary>
     public static class CultureInfoExtensions
     {
-        private static readonly List<CultureInfo> EnrichedCultureInfos = new();
+        private static readonly ConcurrentDictionary<string, CultureInfo> EnrichedCultureInfos = new(StringComparer.Ordinal);
 
         /// <summary>
         /// Enriches the specified <paramref name="culture"/> with the original Windows variant.
@@ -48,13 +49,11 @@ namespace Codebelt.Extensions.Globalization
         {
             Validator.ThrowIfNull(cultures);
 
-            var enrichedCultures = new List<CultureInfo>();
             foreach (var culture in cultures)
             {
-                var enrichedCulture = EnrichedCultureInfos.Find(ci => ci.Name.Equals(culture.Name, StringComparison.Ordinal));
-                if (enrichedCulture != null)
+                if (EnrichedCultureInfos.TryGetValue(culture.Name, out var enrichedCulture))
                 {
-                    enrichedCultures.Add(enrichedCulture);
+                    yield return enrichedCulture;
                 }
                 else
                 {
@@ -71,18 +70,17 @@ namespace Codebelt.Extensions.Globalization
                     {
                         var cultureClone = culture.Clone() as CultureInfo;
                         Enrich(cultureClone, surrogateCulture);
-                        EnrichedCultureInfos.Add(cultureClone);
-                        enrichedCultures.Add(cultureClone);
+                        EnrichedCultureInfos.TryAdd(cultureClone!.Name, cultureClone);
+                        yield return cultureClone;
                     }
                     else
                     {
                         Enrich(culture, surrogateCulture);
-                        EnrichedCultureInfos.Add(culture);
-                        enrichedCultures.Add(culture);
+                        EnrichedCultureInfos.TryAdd(culture.Name, culture);
+                        yield return culture;
                     }
                 }
             }
-            return enrichedCultures;
         }
 
         private static void Enrich(CultureInfo culture, CultureInfoSurrogate surrogate)
