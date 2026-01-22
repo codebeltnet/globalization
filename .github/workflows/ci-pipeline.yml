@@ -1,12 +1,7 @@
-name: Globalization Ext. CI/CD Pipeline
+name: Globalization Ext. CI Pipeline
 on:
   pull_request:
-    paths-ignore:
-      - .codecov
-      - .docfx
-      - .github
-      - .nuget
-      - '**.md'
+    branches: [main]
   workflow_dispatch:
     inputs:
       configuration:
@@ -17,6 +12,9 @@ on:
         options:
           - Debug
           - Release
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -48,7 +46,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-24.04, windows-2022]
+        os: [ubuntu-24.04, windows-2025, ubuntu-24.04-arm, windows-11-arm]
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v3
     with:
@@ -78,17 +76,17 @@ jobs:
       repository: codebeltnet/globalization
     secrets: inherit
 
-  # codeql:
-  #   name: call-codeql
-  #   needs: [build,test]
-  #   uses: codebeltnet/jobs-codeql/.github/workflows/default.yml@v3
-  #   with:
-  #     projects: src/**/*.csproj
+  codeql:
+    name: call-codeql
+    needs: [build,test]
+    uses: codebeltnet/jobs-codeql/.github/workflows/default.yml@v3
+    with:
+      projects: src/**/*.csproj
 
   deploy:
     if: github.event_name != 'pull_request'
     name: call-nuget
-    needs: [build, pack, test, sonarcloud, codecov]
+    needs: [build, pack, test, sonarcloud, codecov, codeql]
     uses: codebeltnet/jobs-nuget-push/.github/workflows/default.yml@v2
     with:
       version: ${{ needs.build.outputs.version }}

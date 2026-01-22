@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Codebelt.Extensions.Globalization/Codebelt.Extensions.Globalization.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Codebelt.Extensions.Globalization.Tests/Codebelt.Extensions.Globalization.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tooling/">
+    <Project Path="tooling/gse/gse.csproj" />
+  </Folder>
+</Solution>
