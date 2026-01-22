@@ -82,6 +82,8 @@ jobs:
     uses: codebeltnet/jobs-codeql/.github/workflows/default.yml@v3
     with:
       projects: src/**/*.csproj
+    permissions:
+      security-events: write
 
   deploy:
     if: github.event_name != 'pull_request'
