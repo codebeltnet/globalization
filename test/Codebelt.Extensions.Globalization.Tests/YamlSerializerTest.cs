@@ -144,7 +144,7 @@ MonthGenitiveNames:
 - ''
 ".ReplaceLineEndings();
 
-#if NET8_0_OR_GREATER
+#if NET9_0_OR_GREATER
             expected = string.Format(expected, "2049");
 #elif NET48_OR_GREATER
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
