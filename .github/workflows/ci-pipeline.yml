@@ -21,7 +21,7 @@ jobs:
     name: call-build
     strategy:
       matrix:
-        arch: [x64, ARM64]
+        arch: [X64, ARM64]
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-build/.github/workflows/default.yml@v3
     with:
