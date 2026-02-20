@@ -3,8 +3,11 @@ Availability: .NET 10, .NET 9 and .NET Standard 2.0
  
 # ALM
 - CHANGED Dependencies have been upgraded to the latest compatible versions for all supported target frameworks (TFMs)
+ 
+# Bug Fixes
+- FIXED missing embedded resources for these cultures: "bgc-deva-in, bho-deva-in, cv-cyrl-ru, en-mv, hi-latn-in, kgp-latn-br, oc-es, raj-deva-in, sc-latn-it, yrl-latn-br, yrl-latn-co and yrl-latn-ve"
  
-﻿Version: 10.0.2
+Version: 10.0.2
 Availability: .NET 10, .NET 9 and .NET Standard 2.0
  
 # ALM
