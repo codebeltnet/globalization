@@ -659,7 +659,7 @@ namespace Codebelt.Extensions.Globalization
             Assert.NotNull(sut.DateTimeFormat);
             Assert.NotNull(sut.NumberFormat);
 
-            TestOutput.WriteLine(sut.NativeName);
+            TestOutput.WriteLine($"{sut.EnglishName}/{sut.NativeName}");
         }
 
         [Theory]
@@ -1275,7 +1275,7 @@ namespace Codebelt.Extensions.Globalization
             Assert.NotNull(sut.DateTimeFormat);
             Assert.NotNull(sut.NumberFormat);
 
-            TestOutput.WriteLine(sut.NativeName);
+            TestOutput.WriteLine($"{sut.EnglishName}/{sut.NativeName}");
         }
     }
 }
