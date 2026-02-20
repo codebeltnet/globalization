@@ -11,6 +11,10 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 
 This is a service update that focuses on package dependencies.
 
+### Fixed
+
+- Added embedded resources for these missed cultures: `bgc-deva-in`, `bho-deva-in`, `cv-cyrl-ru`, `en-mv`, `hi-latn-in`, `kgp-latn-br`, `oc-es`, `raj-deva-in`, `sc-latn-it`, `yrl-latn-br`, `yrl-latn-co` and `yrl-latn-ve`
+
 ## [10.0.2] - 2026-02-15
 
 This is a service update that focuses on package dependencies.
