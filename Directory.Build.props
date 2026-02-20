@@ -78,6 +78,8 @@
     <IsPackable>false</IsPackable>
     <OutputType>Exe</OutputType>
     <SonarQubeExclude>true</SonarQubeExclude>
+    <SignAssembly Condition="('$(CI)' == 'true' OR '$(IsMainAuthor)' == 'true') AND '$(SkipSignAssembly)' == 'false'">true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)globalization.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(IsTestProject)' == 'true'">
