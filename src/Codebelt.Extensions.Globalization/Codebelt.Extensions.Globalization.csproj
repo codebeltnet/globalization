@@ -57,6 +57,8 @@
     <None Remove="Surrogates\bem-zm.bin" />
     <None Remove="Surrogates\bez-tz.bin" />
     <None Remove="Surrogates\bg-bg.bin" />
+    <None Remove="Surrogates\bgc-deva-in.bin" />
+    <None Remove="Surrogates\bho-deva-in.bin" />
     <None Remove="Surrogates\bin-ng.bin" />
     <None Remove="Surrogates\bm-latn-ml.bin" />
     <None Remove="Surrogates\bn-bd.bin" />
@@ -81,6 +83,7 @@
     <None Remove="Surrogates\co-fr.bin" />
     <None Remove="Surrogates\cs-cz.bin" />
     <None Remove="Surrogates\cu-ru.bin" />
+    <None Remove="Surrogates\cv-cyrl-ru.bin" />
     <None Remove="Surrogates\cy-gb.bin" />
     <None Remove="Surrogates\da-dk.bin" />
     <None Remove="Surrogates\da-gl.bin" />
@@ -166,6 +169,7 @@
     <None Remove="Surrogates\en-ms.bin" />
     <None Remove="Surrogates\en-mt.bin" />
     <None Remove="Surrogates\en-mu.bin" />
+    <None Remove="Surrogates\en-mv.bin" />
     <None Remove="Surrogates\en-mw.bin" />
     <None Remove="Surrogates\en-my.bin" />
     <None Remove="Surrogates\en-na.bin" />
@@ -336,6 +340,7 @@
     <None Remove="Surrogates\haw-us.bin" />
     <None Remove="Surrogates\he-il.bin" />
     <None Remove="Surrogates\hi-in.bin" />
+    <None Remove="Surrogates\hi-latn-in.bin" />
     <None Remove="Surrogates\hr-ba.bin" />
     <None Remove="Surrogates\hr-hr.bin" />
     <None Remove="Surrogates\hsb-de.bin" />
@@ -363,6 +368,7 @@
     <None Remove="Surrogates\kam-ke.bin" />
     <None Remove="Surrogates\kde-tz.bin" />
     <None Remove="Surrogates\kea-cv.bin" />
+    <None Remove="Surrogates\kgp-latn-br.bin" />
     <None Remove="Surrogates\khq-ml.bin" />
     <None Remove="Surrogates\ki-ke.bin" />
     <None Remove="Surrogates\kk-kz.bin" />
@@ -449,6 +455,7 @@
     <None Remove="Surrogates\nso-za.bin" />
     <None Remove="Surrogates\nus-ss.bin" />
     <None Remove="Surrogates\nyn-ug.bin" />
+    <None Remove="Surrogates\oc-es.bin" />
     <None Remove="Surrogates\oc-fr.bin" />
     <None Remove="Surrogates\om-et.bin" />
     <None Remove="Surrogates\om-ke.bin" />
@@ -479,6 +486,7 @@
     <None Remove="Surrogates\quz-bo.bin" />
     <None Remove="Surrogates\quz-ec.bin" />
     <None Remove="Surrogates\quz-pe.bin" />
+    <None Remove="Surrogates\raj-deva-in.bin" />
     <None Remove="Surrogates\rm-ch.bin" />
     <None Remove="Surrogates\rn-bi.bin" />
     <None Remove="Surrogates\ro-md.bin" />
@@ -497,6 +505,7 @@
     <None Remove="Surrogates\saq-ke.bin" />
     <None Remove="Surrogates\sat-olck-in.bin" />
     <None Remove="Surrogates\sbp-tz.bin" />
+    <None Remove="Surrogates\sc-latn-it.bin" />
     <None Remove="Surrogates\sd-arab-pk.bin" />
     <None Remove="Surrogates\sd-deva-in.bin" />
     <None Remove="Surrogates\se-fi.bin" />
@@ -593,6 +602,9 @@
     <None Remove="Surrogates\yi-001.bin" />
     <None Remove="Surrogates\yo-bj.bin" />
     <None Remove="Surrogates\yo-ng.bin" />
+    <None Remove="Surrogates\yrl-latn-br.bin" />
+    <None Remove="Surrogates\yrl-latn-co.bin" />
+    <None Remove="Surrogates\yrl-latn-ve.bin" />
     <None Remove="Surrogates\zgh-tfng-ma.bin" />
     <None Remove="Surrogates\zh-cn.bin" />
     <None Remove="Surrogates\zh-hans-hk.bin" />
@@ -652,6 +664,8 @@
     <EmbeddedResource Include="Surrogates\bem-zm.bin" />
     <EmbeddedResource Include="Surrogates\bez-tz.bin" />
     <EmbeddedResource Include="Surrogates\bg-bg.bin" />
+    <EmbeddedResource Include="Surrogates\bgc-deva-in.bin" />
+    <EmbeddedResource Include="Surrogates\bho-deva-in.bin" />
     <EmbeddedResource Include="Surrogates\bin-ng.bin" />
     <EmbeddedResource Include="Surrogates\bm-latn-ml.bin" />
     <EmbeddedResource Include="Surrogates\bn-bd.bin" />
@@ -676,6 +690,7 @@
     <EmbeddedResource Include="Surrogates\co-fr.bin" />
     <EmbeddedResource Include="Surrogates\cs-cz.bin" />
     <EmbeddedResource Include="Surrogates\cu-ru.bin" />
+    <EmbeddedResource Include="Surrogates\cv-cyrl-ru.bin" />
     <EmbeddedResource Include="Surrogates\cy-gb.bin" />
     <EmbeddedResource Include="Surrogates\da-dk.bin" />
     <EmbeddedResource Include="Surrogates\da-gl.bin" />
@@ -761,6 +776,7 @@
     <EmbeddedResource Include="Surrogates\en-ms.bin" />
     <EmbeddedResource Include="Surrogates\en-mt.bin" />
     <EmbeddedResource Include="Surrogates\en-mu.bin" />
+    <EmbeddedResource Include="Surrogates\en-mv.bin" />
     <EmbeddedResource Include="Surrogates\en-mw.bin" />
     <EmbeddedResource Include="Surrogates\en-my.bin" />
     <EmbeddedResource Include="Surrogates\en-na.bin" />
@@ -931,6 +947,7 @@
     <EmbeddedResource Include="Surrogates\haw-us.bin" />
     <EmbeddedResource Include="Surrogates\he-il.bin" />
     <EmbeddedResource Include="Surrogates\hi-in.bin" />
+    <EmbeddedResource Include="Surrogates\hi-latn-in.bin" />
     <EmbeddedResource Include="Surrogates\hr-ba.bin" />
     <EmbeddedResource Include="Surrogates\hr-hr.bin" />
     <EmbeddedResource Include="Surrogates\hsb-de.bin" />
@@ -958,6 +975,7 @@
     <EmbeddedResource Include="Surrogates\kam-ke.bin" />
     <EmbeddedResource Include="Surrogates\kde-tz.bin" />
     <EmbeddedResource Include="Surrogates\kea-cv.bin" />
+    <EmbeddedResource Include="Surrogates\kgp-latn-br.bin" />
     <EmbeddedResource Include="Surrogates\khq-ml.bin" />
     <EmbeddedResource Include="Surrogates\ki-ke.bin" />
     <EmbeddedResource Include="Surrogates\kk-kz.bin" />
@@ -1044,6 +1062,7 @@
     <EmbeddedResource Include="Surrogates\nso-za.bin" />
     <EmbeddedResource Include="Surrogates\nus-ss.bin" />
     <EmbeddedResource Include="Surrogates\nyn-ug.bin" />
+    <EmbeddedResource Include="Surrogates\oc-es.bin" />
     <EmbeddedResource Include="Surrogates\oc-fr.bin" />
     <EmbeddedResource Include="Surrogates\om-et.bin" />
     <EmbeddedResource Include="Surrogates\om-ke.bin" />
@@ -1074,6 +1093,7 @@
     <EmbeddedResource Include="Surrogates\quz-bo.bin" />
     <EmbeddedResource Include="Surrogates\quz-ec.bin" />
     <EmbeddedResource Include="Surrogates\quz-pe.bin" />
+    <EmbeddedResource Include="Surrogates\raj-deva-in.bin" />
     <EmbeddedResource Include="Surrogates\rm-ch.bin" />
     <EmbeddedResource Include="Surrogates\rn-bi.bin" />
     <EmbeddedResource Include="Surrogates\ro-md.bin" />
@@ -1092,6 +1112,7 @@
     <EmbeddedResource Include="Surrogates\saq-ke.bin" />
     <EmbeddedResource Include="Surrogates\sat-olck-in.bin" />
     <EmbeddedResource Include="Surrogates\sbp-tz.bin" />
+    <EmbeddedResource Include="Surrogates\sc-latn-it.bin" />
     <EmbeddedResource Include="Surrogates\sd-arab-pk.bin" />
     <EmbeddedResource Include="Surrogates\sd-deva-in.bin" />
     <EmbeddedResource Include="Surrogates\se-fi.bin" />
@@ -1188,6 +1209,9 @@
     <EmbeddedResource Include="Surrogates\yi-001.bin" />
     <EmbeddedResource Include="Surrogates\yo-bj.bin" />
     <EmbeddedResource Include="Surrogates\yo-ng.bin" />
+    <EmbeddedResource Include="Surrogates\yrl-latn-br.bin" />
+    <EmbeddedResource Include="Surrogates\yrl-latn-co.bin" />
+    <EmbeddedResource Include="Surrogates\yrl-latn-ve.bin" />
     <EmbeddedResource Include="Surrogates\zgh-tfng-ma.bin" />
     <EmbeddedResource Include="Surrogates\zh-cn.bin" />
     <EmbeddedResource Include="Surrogates\zh-hans-hk.bin" />
