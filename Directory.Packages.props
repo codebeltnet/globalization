@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Codebelt.Extensions.Xunit" Version="11.0.5" />
+    <PackageVersion Include="Codebelt.Extensions.Xunit" Version="11.0.6" />
     <PackageVersion Include="Codebelt.Extensions.YamlDotNet" Version="10.0.3" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="MinVer" Version="7.0.0" />
