@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Codebelt.Extensions.Globalization;
 using Codebelt.Extensions.YamlDotNet.Formatters;
 using Cuemon.Extensions.IO;
@@ -27,14 +28,10 @@ namespace gse
 
         static void Main(string[] args)
         {
-            var regions = World.Regions;
-            foreach (var region in regions)
+            var cultureInfos = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (var cultureInfo in cultureInfos)
             {
-                var cultureInfos = World.GetCultures(region);
-                foreach (var cultureInfo in cultureInfos)
-                {
-                    WriteSurrogate(cultureInfo);
-                }
+                WriteSurrogate(cultureInfo);
             }
 
             WriteIcuNamedNlsAlternatives();
