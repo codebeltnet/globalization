@@ -1224,6 +1224,152 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Surrogates\bgc-in.bin" />
+    <None Remove="Surrogates\bho-in.bin" />
+    <None Remove="Surrogates\bm-ml.bin" />
+    <None Remove="Surrogates\ccp-bd.bin" />
+    <None Remove="Surrogates\ccp-in.bin" />
+    <None Remove="Surrogates\ceb-ph.bin" />
+    <None Remove="Surrogates\chr-us.bin" />
+    <None Remove="Surrogates\ckb-iq.bin" />
+    <None Remove="Surrogates\ckb-ir.bin" />
+    <None Remove="Surrogates\cv-ru.bin" />
+    <None Remove="Surrogates\doi-in.bin" />
+    <None Remove="Surrogates\en-us-posix.bin" />
+    <None Remove="Surrogates\ha-gh.bin" />
+    <None Remove="Surrogates\ha-ne.bin" />
+    <None Remove="Surrogates\ha-ng.bin" />
+    <None Remove="Surrogates\iu-ca.bin" />
+    <None Remove="Surrogates\jv-id.bin" />
+    <None Remove="Surrogates\kgp-br.bin" />
+    <None Remove="Surrogates\mni-beng-in.bin" />
+    <None Remove="Surrogates\pa-guru-in.bin" />
+    <None Remove="Surrogates\pcm-ng.bin" />
+    <None Remove="Surrogates\qu-bo.bin" />
+    <None Remove="Surrogates\qu-ec.bin" />
+    <None Remove="Surrogates\qu-pe.bin" />
+    <None Remove="Surrogates\quc-gt.bin" />
+    <None Remove="Surrogates\raj-in.bin" />
+    <None Remove="Surrogates\sc-it.bin" />
+    <None Remove="Surrogates\sn-zw.bin" />
+    <None Remove="Surrogates\tg-tj.bin" />
+    <None Remove="Surrogates\tzm-dz.bin" />
+    <None Remove="Surrogates\tzm-ma.bin" />
+    <None Remove="Surrogates\yrl-br.bin" />
+    <None Remove="Surrogates\yrl-co.bin" />
+    <None Remove="Surrogates\yrl-ve.bin" />
+    <None Remove="Surrogates\zgh-ma.bin" />
+    <None Remove="Surrogates\zh-hans-cn.bin" />
+    <None Remove="Surrogates\zh-hans-sg.bin" />
+    <None Remove="Surrogates\zh-hant-hk.bin" />
+    <None Remove="Surrogates\zh-hant-mo.bin" />
+    <None Remove="Surrogates\zh-hant-tw.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Surrogates\bgc-in.bin" />
+    <EmbeddedResource Include="Surrogates\bho-in.bin" />
+    <EmbeddedResource Include="Surrogates\bm-ml.bin" />
+    <EmbeddedResource Include="Surrogates\ccp-bd.bin" />
+    <EmbeddedResource Include="Surrogates\ccp-in.bin" />
+    <EmbeddedResource Include="Surrogates\ceb-ph.bin" />
+    <EmbeddedResource Include="Surrogates\chr-us.bin" />
+    <EmbeddedResource Include="Surrogates\ckb-iq.bin" />
+    <EmbeddedResource Include="Surrogates\ckb-ir.bin" />
+    <EmbeddedResource Include="Surrogates\cv-ru.bin" />
+    <EmbeddedResource Include="Surrogates\doi-in.bin" />
+    <EmbeddedResource Include="Surrogates\en-us-posix.bin" />
+    <EmbeddedResource Include="Surrogates\ha-gh.bin" />
+    <EmbeddedResource Include="Surrogates\ha-ne.bin" />
+    <EmbeddedResource Include="Surrogates\ha-ng.bin" />
+    <EmbeddedResource Include="Surrogates\iu-ca.bin" />
+    <EmbeddedResource Include="Surrogates\jv-id.bin" />
+    <EmbeddedResource Include="Surrogates\kgp-br.bin" />
+    <EmbeddedResource Include="Surrogates\mni-beng-in.bin" />
+    <EmbeddedResource Include="Surrogates\pa-guru-in.bin" />
+    <EmbeddedResource Include="Surrogates\pcm-ng.bin" />
+    <EmbeddedResource Include="Surrogates\qu-bo.bin" />
+    <EmbeddedResource Include="Surrogates\qu-ec.bin" />
+    <EmbeddedResource Include="Surrogates\qu-pe.bin" />
+    <EmbeddedResource Include="Surrogates\quc-gt.bin" />
+    <EmbeddedResource Include="Surrogates\raj-in.bin" />
+    <EmbeddedResource Include="Surrogates\sc-it.bin" />
+    <EmbeddedResource Include="Surrogates\sn-zw.bin" />
+    <EmbeddedResource Include="Surrogates\tg-tj.bin" />
+    <EmbeddedResource Include="Surrogates\tzm-dz.bin" />
+    <EmbeddedResource Include="Surrogates\tzm-ma.bin" />
+    <EmbeddedResource Include="Surrogates\yrl-br.bin" />
+    <EmbeddedResource Include="Surrogates\yrl-co.bin" />
+    <EmbeddedResource Include="Surrogates\yrl-ve.bin" />
+    <EmbeddedResource Include="Surrogates\zgh-ma.bin" />
+    <EmbeddedResource Include="Surrogates\zh-hans-cn.bin" />
+    <EmbeddedResource Include="Surrogates\zh-hans-sg.bin" />
+    <EmbeddedResource Include="Surrogates\zh-hant-hk.bin" />
+    <EmbeddedResource Include="Surrogates\zh-hant-mo.bin" />
+    <EmbeddedResource Include="Surrogates\zh-hant-tw.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Surrogates\ar-eh.bin" />
+    <None Remove="Surrogates\blo-bj.bin" />
+    <None Remove="Surrogates\csw-ca.bin" />
+    <None Remove="Surrogates\en-dg.bin" />
+    <None Remove="Surrogates\es-ea.bin" />
+    <None Remove="Surrogates\es-ic.bin" />
+    <None Remove="Surrogates\ie-ee.bin" />
+    <None Remove="Surrogates\ko-cn.bin" />
+    <None Remove="Surrogates\ku-tr.bin" />
+    <None Remove="Surrogates\kxv-deva-in.bin" />
+    <None Remove="Surrogates\kxv-latn-in.bin" />
+    <None Remove="Surrogates\kxv-orya-in.bin" />
+    <None Remove="Surrogates\kxv-telu-in.bin" />
+    <None Remove="Surrogates\lij-it.bin" />
+    <None Remove="Surrogates\lmo-it.bin" />
+    <None Remove="Surrogates\prg-pl.bin" />
+    <None Remove="Surrogates\syr-iq.bin" />
+    <None Remove="Surrogates\szl-pl.bin" />
+    <None Remove="Surrogates\tok-001.bin" />
+    <None Remove="Surrogates\vec-it.bin" />
+    <None Remove="Surrogates\vmw-mz.bin" />
+    <None Remove="Surrogates\xnr-in.bin" />
+    <None Remove="Surrogates\yi-ua.bin" />
+    <None Remove="Surrogates\yue-hans-cn.bin" />
+    <None Remove="Surrogates\yue-hant-hk.bin" />
+    <None Remove="Surrogates\za-cn.bin" />
+    <None Remove="Surrogates\ca-es-valencia.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Surrogates\ar-eh.bin" />
+    <EmbeddedResource Include="Surrogates\blo-bj.bin" />
+    <EmbeddedResource Include="Surrogates\csw-ca.bin" />
+    <EmbeddedResource Include="Surrogates\en-dg.bin" />
+    <EmbeddedResource Include="Surrogates\es-ea.bin" />
+    <EmbeddedResource Include="Surrogates\es-ic.bin" />
+    <EmbeddedResource Include="Surrogates\ie-ee.bin" />
+    <EmbeddedResource Include="Surrogates\ko-cn.bin" />
+    <EmbeddedResource Include="Surrogates\ku-tr.bin" />
+    <EmbeddedResource Include="Surrogates\kxv-deva-in.bin" />
+    <EmbeddedResource Include="Surrogates\kxv-latn-in.bin" />
+    <EmbeddedResource Include="Surrogates\kxv-orya-in.bin" />
+    <EmbeddedResource Include="Surrogates\kxv-telu-in.bin" />
+    <EmbeddedResource Include="Surrogates\lij-it.bin" />
+    <EmbeddedResource Include="Surrogates\lmo-it.bin" />
+    <EmbeddedResource Include="Surrogates\prg-pl.bin" />
+    <EmbeddedResource Include="Surrogates\syr-iq.bin" />
+    <EmbeddedResource Include="Surrogates\szl-pl.bin" />
+    <EmbeddedResource Include="Surrogates\tok-001.bin" />
+    <EmbeddedResource Include="Surrogates\vec-it.bin" />
+    <EmbeddedResource Include="Surrogates\vmw-mz.bin" />
+    <EmbeddedResource Include="Surrogates\xnr-in.bin" />
+    <EmbeddedResource Include="Surrogates\yi-ua.bin" />
+    <EmbeddedResource Include="Surrogates\yue-hans-cn.bin" />
+    <EmbeddedResource Include="Surrogates\yue-hant-hk.bin" />
+    <EmbeddedResource Include="Surrogates\za-cn.bin" />
+    <EmbeddedResource Include="Surrogates\ca-es-valencia.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Codebelt.Extensions.YamlDotNet" />
   </ItemGroup>
 
