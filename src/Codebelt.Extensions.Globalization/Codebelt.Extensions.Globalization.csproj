@@ -1336,6 +1336,7 @@
     <None Remove="Surrogates\yue-hans-cn.bin" />
     <None Remove="Surrogates\yue-hant-hk.bin" />
     <None Remove="Surrogates\za-cn.bin" />
+    <None Remove="Surrogates\ca-es-valencia.bin" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1365,6 +1366,7 @@
     <EmbeddedResource Include="Surrogates\yue-hans-cn.bin" />
     <EmbeddedResource Include="Surrogates\yue-hant-hk.bin" />
     <EmbeddedResource Include="Surrogates\za-cn.bin" />
+    <EmbeddedResource Include="Surrogates\ca-es-valencia.bin" />
   </ItemGroup>
 
   <ItemGroup>
