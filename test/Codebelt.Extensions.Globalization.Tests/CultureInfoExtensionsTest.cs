@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using Codebelt.Extensions.Xunit;
 using Xunit;
@@ -16,9 +18,9 @@ namespace Codebelt.Extensions.Globalization
         {
             var sut1 = new CultureInfo("da-DK", false);
             var sut2 = (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
-                    ? new CultureInfo("da-DK") // Linux uses ICU
-                    : new CultureInfo("da-DK", false) // Ensure we do not read from user culture settings on Windows
-                    ).UseNationalLanguageSupport();
+                        ? new CultureInfo("da-DK") // Linux uses ICU
+                        : new CultureInfo("da-DK", false) // Ensure we do not read from user culture settings on Windows
+                ).UseNationalLanguageSupport();
 
             Assert.NotEqual(sut1.DateTimeFormat, sut2.DateTimeFormat);
             Assert.NotEqual(sut1.NumberFormat, sut2.NumberFormat);
@@ -1267,7 +1269,8 @@ namespace Codebelt.Extensions.Globalization
         [InlineData("aa-DJ")]
         [InlineData("aa-ER")]
         [InlineData("aa-ET")]
-        public void UseNationalLanguageSupport_ShouldSucceed_ForAllSupportedLocales_FromReadOnlyCultureInfos(string localeName)
+        public void UseNationalLanguageSupport_ShouldSucceed_ForAllSupportedLocales_FromReadOnlyCultureInfos(
+            string localeName)
         {
             var sut = CultureInfo.GetCultureInfo(localeName).UseNationalLanguageSupport();
 
@@ -1276,6 +1279,34 @@ namespace Codebelt.Extensions.Globalization
             Assert.NotNull(sut.NumberFormat);
 
             TestOutput.WriteLine($"{sut.EnglishName}/{sut.NativeName}");
+        }
+
+        [Fact]
+        public void UseNationalLanguageSupport_EnsureAllIcuCulturesAreMapped()
+        {
+            var allCultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            var missingIcuNames = new List<string>();
+            foreach (var culture in allCultures)
+            {
+                try
+                {
+                    var sut = culture.UseNationalLanguageSupport();
+                }
+                catch (Exception exception)
+                {
+                    missingIcuNames.Add(culture.Name);
+                }
+            }
+
+            if (missingIcuNames.Count > 0)
+            {
+                foreach (var missingIcuName in missingIcuNames)
+                {
+
+                }
+            }
+
+            Assert.True(missingIcuNames.Count == 0, $"The following ICU culture names were missing from the test data: {string.Join(", ", missingIcuNames)}.");
         }
     }
 }
