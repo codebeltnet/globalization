@@ -7,6 +7,10 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
+## [10.0.6] - 2026-04-18
+
+This is a service update that focuses on package dependencies.
+
 ## [10.0.5] - 2026-03-28
 
 This is a patch release that focuses on dependency upgrades across all supported target frameworks, tooling maintenance, and minor workflow refinements.
