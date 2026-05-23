@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Codebelt.Extensions.Xunit;
 using Xunit;
@@ -11,6 +12,36 @@ namespace Codebelt.Extensions.Globalization
     {
         public CultureInfoExtensionsTest(ITestOutputHelper output) : base(output)
         {
+        }
+
+        [Fact]
+        public void UseNationalLanguageSupport_ShouldCloneAndEnrich_WhenCultureInfoIsReadOnly()
+        {
+            var sut = CultureInfo.GetCultureInfo("fr-FR").UseNationalLanguageSupport();
+
+            Assert.NotNull(sut);
+            Assert.NotNull(sut.DateTimeFormat);
+            Assert.NotNull(sut.NumberFormat);
+
+            TestOutput.WriteLine($"{sut.EnglishName}: ShortDatePattern={sut.DateTimeFormat.ShortDatePattern}");
+        }
+
+        [Fact]
+        public void UseNationalLanguageSupport_ShouldThrowInvalidOperationException_WhenNoSurrogateExists()
+        {
+            Assert.Throws<InvalidOperationException>(() => new CultureInfo("en").UseNationalLanguageSupport());
+        }
+
+        [Fact]
+        public void UseNationalLanguageSupport_ShouldThrowArgumentNullException_WhenCultureIsNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => ((CultureInfo)null).UseNationalLanguageSupport());
+        }
+
+        [Fact]
+        public void UseNationalLanguageSupport_ShouldThrowArgumentNullException_WhenCulturesIsNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<CultureInfo>)null).UseNationalLanguageSupport().ToList());
         }
 
         [Fact]
