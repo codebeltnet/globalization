@@ -378,3 +378,7 @@ FodyWeavers.xsd
 
 # Tooling
 /tooling/gse/Surrogates
+
+# Bot workspace (local-only AI agent ideation, PRDs, and agentic loop state)
+.bot/*
+!.bot/README.md
