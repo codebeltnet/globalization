@@ -142,7 +142,11 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
-[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.5...HEAD
+[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.9...HEAD
+[10.0.9]: https://github.com/codebeltnet/globalization/compare/v10.0.8...v10.0.9
+[10.0.8]: https://github.com/codebeltnet/globalization/compare/v10.0.7...v10.0.8
+[10.0.7]: https://github.com/codebeltnet/globalization/compare/v10.0.6...v10.0.7
+[10.0.6]: https://github.com/codebeltnet/globalization/compare/v10.0.5...v10.0.6
 [10.0.5]: https://github.com/codebeltnet/globalization/compare/v10.0.4...v10.0.5
 [10.0.4]: https://github.com/codebeltnet/globalization/compare/v10.0.3...v10.0.4
 [10.0.3]: https://github.com/codebeltnet/globalization/compare/v10.0.2...v10.0.3
