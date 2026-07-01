@@ -7,6 +7,26 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
+## [10.0.9] - 2026-07-01
+
+This is a patch release focused on API documentation improvements, CI/tooling enhancements, and maintenance updates to build and test dependencies.
+
+### Added
+
+- Comprehensive type documentation for `CultureInfoExtensions` with realistic, copy-paste-ready examples showing how to adapt a culture for NLS-style formatting,
+- DocFX documentation maintenance guidelines in `AGENTS.md` establishing standards for API documentation, namespace pages, type examples, availability notes, and verification procedures.
+
+### Changed
+
+- Enhanced namespace overview with clearer purpose statement and use-case guidance for when to use culture NLS adaptation,
+- Updated nginx Docker image from 1.31.0 to 1.31.2,
+- Upgraded Microsoft.NET.Test.SDK from 18.6.0 to 18.7.0,
+- Configured DocFX to properly exclude namespace and type overwrite files from conceptual content to prevent duplication and incorrect rendering.
+
+### Fixed
+
+- CI deployment job condition now explicitly validates all required jobs succeeded before proceeding, preventing skipped optional jobs from allowing deployment to proceed.
+
 ## [10.0.8] - 2026-06-06
 
 This is a service update that focuses on package dependencies.
@@ -122,7 +142,11 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
-[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.5...HEAD
+[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.9...HEAD
+[10.0.9]: https://github.com/codebeltnet/globalization/compare/v10.0.8...v10.0.9
+[10.0.8]: https://github.com/codebeltnet/globalization/compare/v10.0.7...v10.0.8
+[10.0.7]: https://github.com/codebeltnet/globalization/compare/v10.0.6...v10.0.7
+[10.0.6]: https://github.com/codebeltnet/globalization/compare/v10.0.5...v10.0.6
 [10.0.5]: https://github.com/codebeltnet/globalization/compare/v10.0.4...v10.0.5
 [10.0.4]: https://github.com/codebeltnet/globalization/compare/v10.0.3...v10.0.4
 [10.0.3]: https://github.com/codebeltnet/globalization/compare/v10.0.2...v10.0.3
