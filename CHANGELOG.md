@@ -7,9 +7,17 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
-## [10.0.10] - 2026-07-22
+## [10.0.10] - 2026-07-24
 
-This is a service update that focuses on package dependencies.
+This is a patch release that focuses on dependency upgrades and build tooling improvements to strengthen code quality enforcement.
+
+### Changed
+
+- Upgraded Microsoft.NET.Test.Sdk from 18.7.0 to 18.8.1 to pick up latest test framework improvements and tooling enhancements,
+- Upgraded Codebelt.Extensions.Xunit from 11.1.1 to 11.1.2,
+- Upgraded Codebelt.Extensions.YamlDotNet from 10.1.5 to 10.1.6,
+- Enabled .NET code analyzers with latest analysis level, configured recommended analysis mode, and enforced code style in the build process,
+- Updated DocFX nginx base image from 1.31.2 to 1.31 for more efficient image layering while maintaining Alpine Linux base.
 
 ## [10.0.9] - 2026-07-01
 
@@ -146,7 +154,8 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
-[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.9...HEAD
+[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.10...HEAD
+[10.0.10]: https://github.com/codebeltnet/globalization/compare/v10.0.9...v10.0.10
 [10.0.9]: https://github.com/codebeltnet/globalization/compare/v10.0.8...v10.0.9
 [10.0.8]: https://github.com/codebeltnet/globalization/compare/v10.0.7...v10.0.8
 [10.0.7]: https://github.com/codebeltnet/globalization/compare/v10.0.6...v10.0.7
