@@ -3,9 +3,9 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Codebelt.Extensions.Xunit" Version="11.1.1" />
-    <PackageVersion Include="Codebelt.Extensions.YamlDotNet" Version="10.1.5" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+    <PackageVersion Include="Codebelt.Extensions.Xunit" Version="11.1.2" />
+    <PackageVersion Include="Codebelt.Extensions.YamlDotNet" Version="10.1.6" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageVersion Include="MinVer" Version="7.0.0" />
     <PackageVersion Include="coverlet.collector" Version="10.0.1" />
     <PackageVersion Include="coverlet.msbuild" Version="10.0.1" />
