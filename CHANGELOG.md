@@ -9,7 +9,18 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 
 ## [10.0.11] - 2026-08-16
 
-This is a service update that focuses on package dependencies.
+This is a patch release that focuses on dependency upgrades, test environment consolidation, and repository configuration standardization.
+
+### Added
+
+- Repository-wide code formatting and encoding standardization via `.editorconfig`,
+- Git line-ending handling and binary file behavior configuration via `.gitattributes`.
+
+### Changed
+
+- Consolidated Docker test runner environments from separate `net9` and `net10` images into unified `codebeltnet/ubuntu-testrunner:8-9-10-11` image for multi-version .NET support,
+- Upgraded Codebelt.Extensions.Xunit from 11.1.2 to 11.2.1,
+- Upgraded Microsoft.NET.Test.Sdk from 18.8.1 to 18.9.0.
 
 ## [10.0.10] - 2026-07-24
 
@@ -158,7 +169,8 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
-[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.10...HEAD
+[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.11...HEAD
+[10.0.11]: https://github.com/codebeltnet/globalization/compare/v10.0.10...v10.0.11
 [10.0.10]: https://github.com/codebeltnet/globalization/compare/v10.0.9...v10.0.10
 [10.0.9]: https://github.com/codebeltnet/globalization/compare/v10.0.8...v10.0.9
 [10.0.8]: https://github.com/codebeltnet/globalization/compare/v10.0.7...v10.0.8
