@@ -7,6 +7,28 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
+## [10.0.12] - 2026-09-13
+
+This is a patch release focused on test infrastructure modernization and dependency upgrades. The primary changes modernize the xunit test framework and code coverage tooling while updating all supporting dependencies to their latest stable versions.
+
+### Added
+
+- Global configuration for Microsoft.Testing.Platform as the default test runner via new `global.json` file.
+
+### Changed
+
+- Upgraded xunit framework from v3.2.2 to v4.0.0 (xunit.v3, xunit.v3.runner.console, and xunit.runner.visualstudio),
+- Replaced coverlet code coverage (v10) with Microsoft.Testing.Extensions.CodeCoverage (18.11.2),
+- Upgraded Codebelt.Extensions.Xunit from 11.2.1 to 12.0.1,
+- Upgraded Codebelt.Extensions.YamlDotNet from 10.1.6 to 10.1.8,
+- Upgraded Microsoft.NET.Test.Sdk from 18.9.0 to 18.10.0,
+- Upgraded MinVer from 7.0.0 to 8.0.0,
+- Updated contributing guidelines with repository-specific Codebelt standards and current development workflows.
+
+### Removed
+
+- Removed `coverlet.collector` and `coverlet.msbuild` from test project dependencies.
+
 ## [10.0.11] - 2026-08-16
 
 This is a patch release that focuses on dependency upgrades, test environment consolidation, and repository configuration standardization.
@@ -169,7 +191,8 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
-[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.11...HEAD
+[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.12...HEAD
+[10.0.12]: https://github.com/codebeltnet/globalization/compare/v10.0.11...v10.0.12
 [10.0.11]: https://github.com/codebeltnet/globalization/compare/v10.0.10...v10.0.11
 [10.0.10]: https://github.com/codebeltnet/globalization/compare/v10.0.9...v10.0.10
 [10.0.9]: https://github.com/codebeltnet/globalization/compare/v10.0.8...v10.0.9
