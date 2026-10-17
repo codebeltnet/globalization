@@ -7,6 +7,10 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
+## [10.0.13] - 2026-10-17
+
+This is a service update that focuses on package dependencies.
+
 ## [10.0.12] - 2026-09-13
 
 This is a patch release focused on test infrastructure modernization and dependency upgrades. The primary changes modernize the xunit test framework and code coverage tooling while updating all supporting dependencies to their latest stable versions.
