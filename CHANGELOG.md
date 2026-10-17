@@ -9,7 +9,27 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 
 ## [10.0.13] - 2026-10-17
 
-This is a service update that focuses on package dependencies.
+This is a patch release updating dependencies, documentation hosting, and repository agent guidance.
+
+### Added
+
+- Added "Codebelt.Coverlet.MTP" 10.1.0 for MTP coverage and "Microsoft.Testing.Extensions.HangDump" 2.5.1 for hang diagnostics,
+- Added an nginx configuration serving documentation on port 8080, caching fingerprinted assets, and disabling caching for stable URLs.
+
+### Changed
+
+- Updated "Codebelt.Extensions.Xunit" from 12.0.1 to 12.0.2,
+- Updated "Codebelt.Extensions.YamlDotNet" from 10.1.8 to 10.1.9,
+- Updated "Microsoft.NET.Test.Sdk" from 18.10.0 to 18.11.0,
+- Updated "xunit.v3" from 4.0.1 to 4.0.2,
+- Updated "xunit.v3.runner.console" from 4.0.1 to 4.0.2,
+- Updated "xunit.runner.visualstudio" from 4.0.0 to 4.0.1,
+- Updated the DocFX container to use dhi.io/nginx and codebeltnet/docfx:2, with separate API member pages, the ms-style template, and a repository-specific sitemap,
+- Consolidated the full test, benchmark, and XML documentation guidance from .github/copilot-instructions.md into AGENTS.md with explicit path scopes, and updated guidance references.
+
+### Removed
+
+- Removed the direct "Microsoft.Testing.Extensions.CodeCoverage" test dependency in favor of "Codebelt.Coverlet.MTP".
 
 ## [10.0.12] - 2026-09-13
 
@@ -195,7 +215,7 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
-[Unreleased]: https://github.com/codebeltnet/globalization/compare/v10.0.12...HEAD
+[10.0.13]: https://github.com/codebeltnet/globalization/compare/v10.0.12...v10.0.13
 [10.0.12]: https://github.com/codebeltnet/globalization/compare/v10.0.11...v10.0.12
 [10.0.11]: https://github.com/codebeltnet/globalization/compare/v10.0.10...v10.0.11
 [10.0.10]: https://github.com/codebeltnet/globalization/compare/v10.0.9...v10.0.10
