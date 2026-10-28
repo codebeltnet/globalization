@@ -5,7 +5,7 @@ This repository is part of the Codebelt .NET library estate. The instructions be
 ## Before you start
 
 - Read the repository `README.md` and open an issue before starting a non-trivial feature or behavioral change.
-- Use an installed .NET SDK that can build the target frameworks listed below. This repository currently targets: **net10.0, net48, net9.0, netstandard2.0**.
+- Use an installed .NET SDK that can build the target frameworks listed below. This repository currently targets: **net11.0, net10.0, netstandard2.0** for the library; tests use **net11.0, net10.0** plus **net48** on Windows, and `tooling/gse` remains on **net10.0**.
 - The solution is `Codebelt.Extensions.Globalization.slnx`. Central package versions are maintained in `Directory.Packages.props`.
 - The shared build behavior is in `Directory.Build.props` and `Directory.Build.targets`; repository-specific TFMs, package references and metadata remain local to this library.
 
@@ -35,9 +35,11 @@ Run tests one project at a time so a failing or hanging project is attributable.
 ```powershell
 $testProjects = Get-ChildItem test -Filter *.csproj -Recurse
 foreach ($project in $testProjects) {
-    dotnet test $project.FullName --configuration Release --no-restore
+    dotnet test --project $project.FullName --configuration Release --no-restore
 }
 ```
+
+The test project's `testconfig.json` explicitly includes the production assembly for Coverlet coverage. To collect the same OpenCover reports locally, append `-- --coverlet --coverlet-output-format opencover` to the test command.
 
 The CI test plan currently runs **1** project(s) and excludes **0** project(s). The workflow also has an optional macOS test job.
 

@@ -4,7 +4,7 @@ This document provides guidance for AI agents working in this repository.
 
 ## Project Overview
 
-Codebelt.Extensions.Globalization is a .NET library providing uniform, opinionated, and extensible APIs for working with globalization, culture information, and locale-sensitive formatting. The solution targets .NET 10.0, .NET 9.0, and .NET Standard 2.0. It includes:
+Codebelt.Extensions.Globalization is a .NET library providing uniform, opinionated, and extensible APIs for working with globalization, culture information, and locale-sensitive formatting. The solution targets .NET 11.0, .NET 10.0, and .NET Standard 2.0. It includes:
 
 - **Codebelt.Extensions.Globalization** — Core extensions for culture info, surrogate types for serialization-friendly globalization data, and culture-aware utilities.
 
