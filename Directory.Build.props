@@ -53,6 +53,7 @@
 
   <ItemGroup Condition="'$(IsSourceProject)' == 'true'">
     <PackageReference Include="MinVer" PrivateAssets="all" />
+    <PackageReference Include="SonarAnalyzer.CSharp" PrivateAssets="all" />
     <None Include="..\..\.nuget\icon.png" Pack="true" Visible="false" PackagePath="\" />
     <None Include="..\..\.nuget\$(MSBuildProjectName)\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
@@ -76,6 +77,7 @@
     <AnalysisMode>none</AnalysisMode>
     <NoWarn>NU1701,NETSDK1206</NoWarn>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <NuGetAudit>false</NuGetAudit>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
   </PropertyGroup>
 
