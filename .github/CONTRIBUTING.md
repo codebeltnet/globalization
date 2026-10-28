@@ -39,14 +39,13 @@ foreach ($project in $testProjects) {
 }
 ```
 
-The test project's `testconfig.json` explicitly includes the production assembly for Coverlet coverage. To collect the same OpenCover reports locally, append `-- --coverlet --coverlet-output-format opencover` to the test command.
-
 The CI test plan currently runs **1** project(s) and excludes **0** project(s). The workflow also has an optional macOS test job.
 
 ## Integration and infrastructure
 
 - `WSL-Ubuntu` — WSL distribution `Ubuntu-24.04`.
-- `Docker-Ubuntu` — Docker image `codebeltnet/ubuntu-testrunner:8-9-10-11`.
+- `Docker-Ubuntu (net10.0)` — Docker image `codebeltnet/ubuntu-testrunner:10`.
+- `Docker-Ubuntu (net11.0)` — Docker image `codebeltnet/ubuntu-testrunner:11`.
 
 This repository has no repository-local `docker-compose.yml` service dependency in the current checkout.
 Use the environments declared in `testenvironments.json` when you need the estate test runner.
