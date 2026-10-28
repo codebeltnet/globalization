@@ -4,27 +4,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 For more details, please refer to `PackageReleaseNotes.txt` on a per assembly basis in the `.nuget` folder.
 
-> [!NOTE]  
+> [!NOTE]
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
-## [11.0.0] - TBD
+## [11.0.0] - 2026-10-28
 
-This is a major release advancing the supported modern .NET baseline to .NET 11 and .NET 10. The .NET Standard 2.0 asset remains available for legacy consumers; public APIs are unchanged.
+This major release replaces the dedicated .NET 9 target with .NET 11 while retaining the .NET 10 and .NET Standard 2.0 library targets.
 
 ### Added
 
-- Added a dedicated net11.0 package asset and .NET 11 test coverage.
+- Added a dedicated net11.0 library target and .NET 11 test target.
 
 ### Changed
 
-- Enabled preview SDK provisioning for build, pack, test, SonarCloud and CodeQL through the existing reusable workflows,
-- Updated Codebelt.Coverlet.MTP from 10.1.0 to 10.1.1 and explicitly selected the production assembly for coverage so dynamic infrastructure exclusions do not omit it,
-- Aligned current framework documentation and availability includes, retaining historical release availability,
-- Updated service automation to preserve a pending migration release version.
+- Updated the test dependency `Codebelt.Coverlet.MTP` from 10.1.0 to 10.1.1,
+- Enabled preview SDK provisioning in the build, pack, test, SonarCloud and CodeQL workflows,
+- Updated service automation to retain pending release versions and existing package release notes,
+- Replaced the combined Docker test runner with separate .NET 10 and .NET 11 runners,
+- Applied the LF Git attributes policy and updated the contributor guide for the current framework and test environment configuration.
 
 ### Removed
 
-- Removed the dedicated net9.0 package asset and .NET 9 test target under the rolling two-version modern .NET support policy.
+- Removed the dedicated net9.0 library and test targets,
+- Removed the benchmark fixture prompt from `.github/prompts/benchmark.prompt.md`.
 
 ## [10.0.13] - 2026-10-17
 
