@@ -7,6 +7,25 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 > [!NOTE]  
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
 
+## [11.0.0] - TBD
+
+This is a major release advancing the supported modern .NET baseline to .NET 11 and .NET 10. The .NET Standard 2.0 asset remains available for legacy consumers; public APIs are unchanged.
+
+### Added
+
+- Added a dedicated net11.0 package asset and .NET 11 test coverage.
+
+### Changed
+
+- Enabled preview SDK provisioning for build, pack, test, SonarCloud and CodeQL through the existing reusable workflows,
+- Updated Codebelt.Coverlet.MTP from 10.1.0 to 10.1.1 and explicitly selected the production assembly for coverage so dynamic infrastructure exclusions do not omit it,
+- Aligned current framework documentation and availability includes, retaining historical release availability,
+- Updated service automation to preserve a pending migration release version.
+
+### Removed
+
+- Removed the dedicated net9.0 package asset and .NET 9 test target under the rolling two-version modern .NET support policy.
+
 ## [10.0.13] - 2026-10-17
 
 This is a patch release updating dependencies, documentation hosting, and repository agent guidance.
@@ -215,6 +234,7 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
+[11.0.0]: https://github.com/codebeltnet/globalization/compare/v10.0.13...v11.0.0
 [10.0.13]: https://github.com/codebeltnet/globalization/compare/v10.0.12...v10.0.13
 [10.0.12]: https://github.com/codebeltnet/globalization/compare/v10.0.11...v10.0.12
 [10.0.11]: https://github.com/codebeltnet/globalization/compare/v10.0.10...v10.0.11
