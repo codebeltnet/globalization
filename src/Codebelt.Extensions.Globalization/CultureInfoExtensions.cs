@@ -1,4 +1,4 @@
-﻿using Codebelt.Extensions.YamlDotNet.Formatters;
+using Codebelt.Extensions.YamlDotNet.Formatters;
 using Cuemon;
 using Cuemon.Collections.Generic;
 using Cuemon.Extensions.IO;

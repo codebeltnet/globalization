@@ -1,4 +1,4 @@
-﻿namespace Codebelt.Extensions.Globalization
+namespace Codebelt.Extensions.Globalization
 {
     internal class CultureInfoSurrogate
     {
