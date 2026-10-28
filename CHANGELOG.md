@@ -4,8 +4,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 For more details, please refer to `PackageReleaseNotes.txt` on a per assembly basis in the `.nuget` folder.
 
-> [!NOTE]  
+> [!NOTE]
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
+
+## [11.0.0] - 2026-10-28
+
+This major release replaces the dedicated .NET 9 target with .NET 11 while retaining the .NET 10 and .NET Standard 2.0 library targets.
+
+### Added
+
+- Added a dedicated net11.0 library target and .NET 11 test target.
+
+### Changed
+
+- Updated the test dependency `Codebelt.Coverlet.MTP` from 10.1.0 to 10.1.1,
+- Enabled preview SDK provisioning in the build, pack, test, SonarCloud and CodeQL workflows,
+- Updated service automation to retain pending release versions and existing package release notes,
+- Replaced the combined Docker test runner with separate .NET 10 and .NET 11 runners,
+- Applied the LF Git attributes policy and updated the contributor guide for the current framework and test environment configuration.
+
+### Removed
+
+- Removed the dedicated net9.0 library and test targets,
+- Removed the benchmark fixture prompt from `.github/prompts/benchmark.prompt.md`.
 
 ## [10.0.13] - 2026-10-17
 
@@ -215,6 +236,7 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
+[11.0.0]: https://github.com/codebeltnet/globalization/compare/v10.0.13...v11.0.0
 [10.0.13]: https://github.com/codebeltnet/globalization/compare/v10.0.12...v10.0.13
 [10.0.12]: https://github.com/codebeltnet/globalization/compare/v10.0.11...v10.0.12
 [10.0.11]: https://github.com/codebeltnet/globalization/compare/v10.0.10...v10.0.11

@@ -59,6 +59,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-build/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       projects: src/**/*.csproj
       configuration: ${{ matrix.configuration }}
       strong-name-key-filename: ${{ needs.init.outputs.strong-name-key-filename }}
@@ -75,6 +76,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-pack/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       configuration: ${{ matrix.configuration }}
       version: ${{ needs.build.outputs.version }}
       download-build-artifact-pattern: build-${{ matrix.configuration }}-X64
@@ -89,6 +91,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       projects: test/**/*.csproj
       configuration: ${{ matrix.configuration }}
       runs-on: ${{ matrix.arch == 'ARM64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
@@ -107,6 +110,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       projects: test/**/*.csproj
       configuration: ${{ matrix.configuration }}
       runs-on: ${{ matrix.arch == 'ARM64' && 'windows-11-arm' || 'windows-2025' }}
@@ -126,6 +130,7 @@ jobs:
         configuration: [Debug, Release]
     uses: codebeltnet/jobs-dotnet-test/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       projects: test/**/*.csproj
       runs-on: ${{ matrix.arch == 'ARM64' && 'macos-26' || 'macos-26-intel' }}
       configuration: ${{ matrix.configuration }}
@@ -184,6 +189,7 @@ jobs:
     needs: [init, build, test_qualitygate]
     uses: codebeltnet/jobs-sonarcloud/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       projects: src/**/*.csproj
       organization: geekle
       projectKey: globalization
@@ -205,6 +211,7 @@ jobs:
     needs: [init, build, test_qualitygate]
     uses: codebeltnet/jobs-codeql/.github/workflows/default.yml@v3
     with:
+      include-preview: true
       projects: src/**/*.csproj
     permissions:
       security-events: write
