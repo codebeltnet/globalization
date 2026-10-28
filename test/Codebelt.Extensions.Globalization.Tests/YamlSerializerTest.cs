@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -144,7 +144,7 @@ MonthGenitiveNames:
 - ''
 ".ReplaceLineEndings();
 
-#if NET9_0_OR_GREATER
+#if NET10_0_OR_GREATER
             expected = string.Format(expected, "2049");
 #elif NET48_OR_GREATER
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
