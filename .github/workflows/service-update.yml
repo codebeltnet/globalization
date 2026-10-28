@@ -86,6 +86,9 @@ jobs:
           if current_version == next_version and current_status.upper() == "TBD":
               # Reuse an already pending next release, such as [5.0.13] - TBD.
               new_version = next_version
+          elif current_status.upper() == "TBD" and tuple(int(part) for part in current_version.split(".")) > (major, minor, patch):
+              # Preserve a pending migration release instead of forcing the next patch.
+              new_version = current_version
           elif current_version == latest_version and current_status.upper() != "TBD":
               # The changelog is at the latest released tag; start the next patch release.
               new_version = next_version
@@ -93,7 +96,7 @@ jobs:
               print(
                   f"::error::CHANGELOG.md starts at {current_version} ({current_status}), "
                   f"but the latest stable Git tag is {latest_tag}. Expected either "
-                  f"[{latest_version}] with a release date or [{next_version}] - TBD."
+                  f"[{latest_version}] with a release date or a newer version with TBD."
               )
               sys.exit(1)
 
@@ -105,6 +108,7 @@ jobs:
               output.write(f"current={current_version}\n")
               output.write(f"new={new_version}\n")
               output.write(f"branch={branch}\n")
+          PY
 
       - name: Generate codebelt-aicia token
         id: app-token
@@ -125,7 +129,11 @@ jobs:
           NEW="${{ steps.newver.outputs.new }}"
           for f in .nuget/*/PackageReleaseNotes.txt; do
             [ -f "$f" ] || continue
-            TFM=$(grep -m1 "^Availability:" "$f" | sed 's/Availability: //' || echo ".NET 10, .NET 9 and .NET Standard 2.0")
+            # Keep the authored notes when reusing a pending release.
+            if [ "$(head -n 1 "$f" | tr -d '\r')" = "Version: ${NEW}" ]; then
+              continue
+            fi
+            TFM=$(grep -m1 "^Availability:" "$f" | sed 's/Availability: //' || echo ".NET 11, .NET 10 and .NET Standard 2.0")
             ENTRY="Version: ${NEW}\nAvailability: ${TFM}\n\n# ALM\n- CHANGED Dependencies have been upgraded to the latest compatible versions for all supported target frameworks (TFMs)\n\n"
             { printf "$ENTRY"; cat "$f"; } > "$f.tmp" && mv "$f.tmp" "$f"
           done
