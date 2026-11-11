@@ -266,7 +266,7 @@ internal class Program
             { "trv-TW",       "zh-TW"        },
             { "tyv-RU",       "ru-RU"        },
             { "wa-BE",        "fr-BE"        },
-            // Geographic/regional fallbacks for ICU-only cultures (no NLS equivalent - Ubuntu 24.04)
+            // Geographic/regional fallbacks for ICU-only cultures (no NLS equivalent - Ubuntu 26.04)
             { "ar-EH",        "ar-MA"        }, // Arabic, Western Sahara → Arabic, Morocco (nearest NLS Arabic)
             { "blo-BJ",       "fr-BJ"        }, // Anii, Benin → French, Benin (official language)
             { "csw-CA",       "en-CA"        }, // Swampy Cree, Canada → English, Canada
