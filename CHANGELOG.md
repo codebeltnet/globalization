@@ -9,24 +9,25 @@ For more details, please refer to `PackageReleaseNotes.txt` on a per assembly ba
 
 ## [11.0.0] - 2026-10-28
 
-This major release replaces the dedicated .NET 9 target with .NET 11 while retaining the .NET 10 and .NET Standard 2.0 library targets.
+This major release replaces the dedicated .NET 9 target with .NET 11 while retaining .NET 10 and .NET Standard 2.0. It also updates test tooling, automation, and documentation hosting.
 
 ### Added
 
-- Added a dedicated net11.0 library target and .NET 11 test target.
+- A dedicated .NET 11 library target and test target,
+- `SonarAnalyzer.CSharp` 10.35.0.4138 for source projects.
 
 ### Changed
 
-- Updated the test dependency `Codebelt.Coverlet.MTP` from 10.1.0 to 10.1.1,
-- Enabled preview SDK provisioning in the build, pack, test, SonarCloud and CodeQL workflows,
-- Updated service automation to retain pending release versions and existing package release notes,
-- Replaced the combined Docker test runner with separate .NET 10 and .NET 11 runners,
-- Applied the LF Git attributes policy and updated the contributor guide for the current framework and test environment configuration.
+- Updated `Codebelt.Coverlet.MTP` from 10.1.0 to 10.1.1 and `Microsoft.Testing.Extensions.HangDump` from 2.5.1 to 2.5.2,
+- Enabled preview SDK provisioning, moved Linux CI and downstream triggers to Ubuntu 26.04, and split Docker test runners by .NET 10 and .NET 11,
+- Service automation retains pending release versions and existing package notes and validates release dates,
+- Updated contributor guidance and package availability for the supported frameworks and test environments,
+- Fingerprinted documentation assets use immutable caching for successful and 304 responses, no-store for errors, and full responses instead of ranges.
 
 ### Removed
 
-- Removed the dedicated net9.0 library and test targets,
-- Removed the benchmark fixture prompt from `.github/prompts/benchmark.prompt.md`.
+- The dedicated .NET 9 library and test targets; the library retains a .NET Standard 2.0 asset,
+- The repository's benchmark prompt.
 
 ## [10.0.13] - 2026-10-17
 
