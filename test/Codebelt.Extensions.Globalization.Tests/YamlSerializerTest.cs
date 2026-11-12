@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,33 +11,33 @@ using Xunit;
 using YamlDotNet.Core;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace Codebelt.Extensions.Globalization
+namespace Codebelt.Extensions.Globalization;
+
+public class YamlSerializerTest : Test
 {
-    public class YamlSerializerTest : Test
+    private static readonly CultureInfo DanishCulture = new CultureInfo("da-DK").UseNationalLanguageSupport(); // from .NET6+ this is needed for both Windows and Linux; at least from pipeline (worked locally for Windows without Merge ...)
+
+    public YamlSerializerTest(ITestOutputHelper output) : base(output)
     {
-        private static readonly CultureInfo DanishCulture = new CultureInfo("da-DK").UseNationalLanguageSupport(); // from .NET6+ this is needed for both Windows and Linux; at least from pipeline (worked locally for Windows without Merge ...)
+    }
 
-        public YamlSerializerTest(ITestOutputHelper output) : base(output)
+    [Fact]
+    public void Serialize_ShouldSerializeDateFormatInfo()
+    {
+        var sut2 = DanishCulture;
+        var sut3 = YamlFormatter.SerializeObject(sut2.DateTimeFormat, o =>
         {
-        }
+            o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
+            o.Settings.ScalarStyle = ScalarStyle.Plain;
+            o.Settings.IndentSequences = false;
+            o.Settings.FormatProvider = DanishCulture;
+            o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(DanishCulture))));
+        });
+        var sut4 = sut3.ToEncodedString();
 
-        [Fact]
-        public void Serialize_ShouldSerializeDateFormatInfo()
-        {
-            var sut2 = DanishCulture;
-            var sut3 = YamlFormatter.SerializeObject(sut2.DateTimeFormat, o =>
-            {
-                o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
-                o.Settings.ScalarStyle = ScalarStyle.Plain;
-                o.Settings.IndentSequences = false;
-                o.Settings.FormatProvider = DanishCulture;
-                o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(DanishCulture))));
-            });
-            var sut4 = sut3.ToEncodedString();
+        TestOutput.WriteLine(sut4);
 
-            TestOutput.WriteLine(sut4);
-
-            var expected = @"AMDesignator: ''
+        var expected = @"AMDesignator: ''
 Calendar:
   MinSupportedDateTime: 01-01-0001 00:00:00
   MaxSupportedDateTime: 31-12-9999 23:59:59
@@ -144,40 +144,40 @@ MonthGenitiveNames:
 - ''
 ".ReplaceLineEndings();
 
-#if NET9_0_OR_GREATER
-            expected = string.Format(expected, "2049");
+#if NET10_0_OR_GREATER
+        expected = string.Format(expected, "2049");
 #elif NET48_OR_GREATER
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                expected = StringReplacePair.ReplaceAll(expected, "gregoriansk kalender", "dansk (Danmark)", StringComparison.Ordinal);
-                expected = string.Format(expected, "2029");
-            }
-            else
-            {
-                expected = StringReplacePair.ReplaceAll(expected, "gregoriansk", "Gregoriansk", StringComparison.Ordinal);
-                expected = string.Format(expected, "2049");
-            }
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            expected = StringReplacePair.ReplaceAll(expected, "gregoriansk kalender", "dansk (Danmark)", StringComparison.Ordinal);
+            expected = string.Format(expected, "2029");
+        }
+        else
+        {
+            expected = StringReplacePair.ReplaceAll(expected, "gregoriansk", "Gregoriansk", StringComparison.Ordinal);
+            expected = string.Format(expected, "2049");
+        }
 #endif
 
-            Assert.Equal(expected, sut4);
-        }
+        Assert.Equal(expected, sut4);
+    }
 
-        [Fact]
-        public void Serialize_ShouldSerializeNumberFormatInfo()
+    [Fact]
+    public void Serialize_ShouldSerializeNumberFormatInfo()
+    {
+        var sut2 = DanishCulture;
+        var sut3 = YamlFormatter.SerializeObject(sut2.NumberFormat, o =>
         {
-            var sut2 = DanishCulture;
-            var sut3 = YamlFormatter.SerializeObject(sut2.NumberFormat, o =>
-            {
-                o.Settings.ScalarStyle = ScalarStyle.DoubleQuoted;
-                o.Settings.IndentSequences = false;
-                o.Settings.FormatProvider = DanishCulture;
-                o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
-            });
-            var sut4 = sut3.ToEncodedString();
+            o.Settings.ScalarStyle = ScalarStyle.DoubleQuoted;
+            o.Settings.IndentSequences = false;
+            o.Settings.FormatProvider = DanishCulture;
+            o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
+        });
+        var sut4 = sut3.ToEncodedString();
 
-            TestOutput.WriteLine(sut4);
+        TestOutput.WriteLine(sut4);
 
-            Assert.Equal(@"CurrencyDecimalDigits: 2
+        Assert.Equal(@"CurrencyDecimalDigits: 2
 CurrencyDecimalSeparator: "",""
 CurrencyGroupSizes:
 - 3
@@ -218,25 +218,25 @@ NativeDigits:
 - ""9""
 DigitSubstitution: ""None""
 ".ReplaceLineEndings(), sut4);
-        }
+    }
 
 
-        [Fact]
-        public void Serialize_ShouldSerializeCultureInfo()
+    [Fact]
+    public void Serialize_ShouldSerializeCultureInfo()
+    {
+        var sut2 = DanishCulture;
+        var sut3 = YamlFormatter.SerializeObject(sut2, o =>
         {
-            var sut2 = DanishCulture;
-            var sut3 = YamlFormatter.SerializeObject(sut2, o =>
-            {
-                o.Settings.IndentSequences = false;
-                o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
-                o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(DanishCulture))));
-            });
-            var sut4 = sut3.ToEncodedString().ReplaceLineEndings().Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+            o.Settings.IndentSequences = false;
+            o.Settings.NamingConvention = PascalCaseNamingConvention.Instance;
+            o.Settings.Converters.Add(YamlConverterFactory.Create<DateTime>((writer, dt, _) => writer.WriteValue(dt.ToString(DanishCulture))));
+        });
+        var sut4 = sut3.ToEncodedString().ReplaceLineEndings().Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
 
-            sut4.RemoveRange(sut4.FindIndex(s => s.StartsWith("CompareInfo")), 6);
-            sut4.RemoveRange(sut4.FindIndex(s => s.StartsWith("CultureTypes")), 1);
+        sut4.RemoveRange(sut4.FindIndex(s => s.StartsWith("CompareInfo")), 6);
+        sut4.RemoveRange(sut4.FindIndex(s => s.StartsWith("CultureTypes")), 1);
 
-            var expected = @"LCID: 1030
+        var expected = @"LCID: 1030
 KeyboardLayoutId: 1030
 Name: da-DK
 IetfLanguageTag: da-DK
@@ -423,18 +423,17 @@ UseUserOverride: true
 ";
 
 #if NET8_0_OR_GREATER || NET48_OR_GREATER
-            expected = string.Format(expected, "2049");
+        expected = string.Format(expected, "2049");
 #else
-            expected = string.Format(expected, "2029");
+        expected = string.Format(expected, "2029");
 #endif
 
 #if NET48_OR_GREATER
-            expected = StringReplacePair.ReplaceAll(expected, "gregoriansk", "Gregoriansk", StringComparison.Ordinal);
+        expected = StringReplacePair.ReplaceAll(expected, "gregoriansk", "Gregoriansk", StringComparison.Ordinal);
 #endif
 
-            TestOutput.WriteLines(sut4);
+        TestOutput.WriteLines(sut4);
 
-            Assert.Equal(expected.ReplaceLineEndings().Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList(), sut4);
-        }
+        Assert.Equal(expected.ReplaceLineEndings().Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList(), sut4);
     }
 }

@@ -4,8 +4,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 For more details, please refer to `PackageReleaseNotes.txt` on a per assembly basis in the `.nuget` folder.
 
-> [!NOTE]  
+> [!NOTE]
 > Changelog entries prior to version 9.0.1 was migrated from previous versions of Cuemon.Extensions.Globalization.
+
+## [11.0.0] - 2026-11-12
+
+This is a major release that replaces the dedicated .NET 9 target with .NET 11 while retaining .NET 10 and .NET Standard 2.0. It also updates dependencies, test environments, release automation, and documentation hosting.
+
+### Added
+
+- A dedicated .NET 11 library target and test target,
+- `SonarAnalyzer.CSharp` 10.36.0.15337 as a private analyzer dependency for source projects.
+
+### Changed
+
+- Updated `Codebelt.Extensions.YamlDotNet` from 10.1.9 to 11.0.0,
+- Updated test dependencies `Codebelt.Extensions.Xunit` from 12.0.2 to 13.0.0, `Codebelt.Coverlet.MTP` from 10.1.0 to 11.0.0, `Microsoft.NET.Test.Sdk` from 18.11.0 to 18.12.0, `Microsoft.Testing.Extensions.HangDump` from 2.5.1 to 2.5.3, and `xunit.v3` and `xunit.v3.runner.console` from 4.0.2 to 4.0.3,
+- Moved Linux CI and downstream triggers to Ubuntu 26.04, updated and pinned Scorecard workflow actions, and split Docker test runners by .NET 10 and .NET 11,
+- Service automation retains pending release versions and existing package notes and validates release dates,
+- Updated contributor guidance and package availability for the supported frameworks and test environments,
+- Required file-scoped namespaces in C# code and disabled NuGet audit for test projects.
+
+### Removed
+
+- The dedicated .NET 9 library and test targets; the library retains a .NET Standard 2.0 asset,
+- The repository's benchmark prompt.
+
+### Fixed
+
+- Fingerprinted documentation assets use immutable caching for successful and 304 responses, no-store for errors, and full responses instead of ranges.
 
 ## [10.0.13] - 2026-10-17
 
@@ -215,6 +242,7 @@ This is a service update that primarily focuses on package dependencies and mino
 
 - CultureInfoExtensions class in the Codebelt.Extensions.Globalization namespace that consist of extension methods for the CultureInfo class: UseNationalLanguageSupport
 
+[11.0.0]: https://github.com/codebeltnet/globalization/compare/v10.0.13...v11.0.0
 [10.0.13]: https://github.com/codebeltnet/globalization/compare/v10.0.12...v10.0.13
 [10.0.12]: https://github.com/codebeltnet/globalization/compare/v10.0.11...v10.0.12
 [10.0.11]: https://github.com/codebeltnet/globalization/compare/v10.0.10...v10.0.11
